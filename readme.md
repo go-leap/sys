@@ -12,6 +12,15 @@ var (
 )
 ```
 
+#### func  UserDataDirPath
+
+```go
+func UserDataDirPath(preferCacheOverConfig bool) string
+```
+UserDataDirPath looks for the user's local configuration or cache directory,
+probing for a variety of common folder-name idioms and environment variables. If
+no match, it returns the result of `UserHomeDirPath`.
+
 #### func  UserHomeDirPath
 
 ```go
