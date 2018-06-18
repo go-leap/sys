@@ -17,6 +17,8 @@ var (
 ```go
 func EnvBool(name string, defaultValue bool) bool
 ```
+EnvBool returns `defaultValue` unless there was an environment variable with the
+given `name` and a value that `strconv.ParseBool`ed successfully.
 
 #### func  UserDataDirPath
 

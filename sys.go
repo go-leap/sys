@@ -17,6 +17,8 @@ var (
 	_userHomeDirPath  string
 )
 
+// EnvBool returns `defaultValue` unless there was an environment variable
+// with the given `name` and a value that `strconv.ParseBool`ed successfully.
 func EnvBool(name string, defaultValue bool) bool {
 	if envstr := os.Getenv(name); envstr != "" {
 		if envbool, e := strconv.ParseBool(envstr); e == nil {
