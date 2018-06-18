@@ -12,6 +12,12 @@ var (
 )
 ```
 
+#### func  EnvBool
+
+```go
+func EnvBool(name string, defaultValue bool) bool
+```
+
 #### func  UserDataDirPath
 
 ```go

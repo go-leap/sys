@@ -4,6 +4,7 @@ import (
 	"os"
 	"os/user"
 	"path/filepath"
+	"strconv"
 
 	"github.com/go-leap/fs"
 )
@@ -15,6 +16,15 @@ var (
 	_userDataDirPaths = make(map[bool]string, 2)
 	_userHomeDirPath  string
 )
+
+func EnvBool(name string, defaultValue bool) bool {
+	if envstr := os.Getenv(name); envstr != "" {
+		if envbool, e := strconv.ParseBool(envstr); e == nil {
+			defaultValue = envbool
+		}
+	}
+	return defaultValue
+}
 
 // UserDataDirPath looks for the user's local configuration or cache directory, probing for a variety of common folder-name idioms and environment variables.
 // If no match, it returns the result of `UserHomeDirPath`.
