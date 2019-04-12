@@ -87,7 +87,3 @@ func UserHomeDirPath() string {
 	}
 	return dirpath
 }
-
-func WriteLn(s string) {
-	_, _ = os.Stdout.WriteString(s + "\n")
-}
