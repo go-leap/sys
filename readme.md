@@ -12,6 +12,12 @@ var (
 )
 ```
 
+#### func  Arg
+
+```go
+func Arg(i int) (argValOrEmpty string)
+```
+
 #### func  EnvBool
 
 ```go
@@ -36,3 +42,9 @@ func UserHomeDirPath() string
 ```
 UserHomeDirPath returns the path to the current user's Home directory. It
 remains cached in-memory after the first call.
+
+#### func  WriteLn
+
+```go
+func WriteLn(s string)
+```

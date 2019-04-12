@@ -17,6 +17,13 @@ var (
 	_userHomeDirPath  string
 )
 
+func Arg(i int) (argValOrEmpty string) {
+	if len(os.Args) > i {
+		argValOrEmpty = os.Args[i]
+	}
+	return
+}
+
 // EnvBool returns `defaultValue` unless there was an environment variable
 // with the given `name` and a value that `strconv.ParseBool`ed successfully.
 func EnvBool(name string, defaultValue bool) bool {
@@ -79,4 +86,8 @@ func UserHomeDirPath() string {
 		}
 	}
 	return dirpath
+}
+
+func WriteLn(s string) {
+	_, _ = os.Stdout.WriteString(s + "\n")
 }
