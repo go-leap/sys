@@ -2,6 +2,7 @@ package usys
 
 import (
 	"os"
+	"os/signal"
 	"os/user"
 	"path/filepath"
 	"strconv"
@@ -86,4 +87,13 @@ func UserHomeDirPath() string {
 		}
 	}
 	return dirpath
+}
+
+func OnSigint(do func()) {
+	sigint := make(chan os.Signal, 1)
+	signal.Notify(sigint, os.Interrupt)
+	go func() {
+		_ = <-sigint
+		do()
+	}()
 }
