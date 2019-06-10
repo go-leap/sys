@@ -17,6 +17,7 @@ var (
 ```go
 func Arg(i int) (argValOrEmpty string)
 ```
+Arg returns `os.Args[i]` if bounds allow.
 
 #### func  EnvBool
 
@@ -31,6 +32,7 @@ given `name` and a value that `strconv.ParseBool`ed successfully.
 ```go
 func OnSigint(do func())
 ```
+OnSigint listens for `os.Interrupt`.
 
 #### func  UserDataDirPath
 

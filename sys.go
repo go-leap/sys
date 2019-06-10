@@ -18,6 +18,7 @@ var (
 	_userHomeDirPath  string
 )
 
+// Arg returns `os.Args[i]` if bounds allow.
 func Arg(i int) (argValOrEmpty string) {
 	if len(os.Args) > i {
 		argValOrEmpty = os.Args[i]
@@ -89,6 +90,7 @@ func UserHomeDirPath() string {
 	return dirpath
 }
 
+// OnSigint listens for `os.Interrupt`.
 func OnSigint(do func()) {
 	sigint := make(chan os.Signal, 1)
 	signal.Notify(sigint, os.Interrupt)
